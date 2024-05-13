@@ -1,0 +1,50 @@
+<div class="text">
+    <p>Producers</p>
+</div>
+
+<div class="producer-container" *ngIf="producers && producers.length; else noProducersTemplate">
+    <table mat-table [dataSource]="producers">
+        <ng-container matColumnDef="email">
+            <th mat-header-cell *matHeaderCellDef>Email</th>
+            <td mat-cell *matCellDef="let element">{{element.email}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="name">
+            <th mat-header-cell *matHeaderCellDef>Name</th>
+            <td mat-cell *matCellDef="let element">{{element.name}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="address">
+            <th mat-header-cell *matHeaderCellDef>Address</th>
+            <td mat-cell *matCellDef="let element">{{element.address}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="phone">
+            <th mat-header-cell *matHeaderCellDef>Phone number</th>
+            <td mat-cell *matCellDef="let element">{{element.phone}}</td>
+        </ng-container>
+
+        <ng-container matColumnDef="subscribe">
+            <th mat-header-cell *matHeaderCellDef>Subscribe</th>
+            <td mat-cell *matCellDef="let element, let i = index" (click)="subscribe()"><mat-icon>subscriptions</mat-icon></td>
+        </ng-container>
+
+        <tr mat-header-row *matHeaderRowDef="columns"></tr>
+        <tr mat-row *matRowDef="let ro; columns: columns"></tr>
+    </table>
+</div>
+
+<ng-template #noProducersTemplate>
+    <p>No producers available.</p>
+</ng-template>
+
+<div class="buttons">
+    <button type="button" (click)="navigate('/main/products')">Go to Products</button>
+</div>
+<div class="buttons">
+    <button type="button" (click)="navigate('/main/events')">Go to Events</button>
+</div>
+
+<div class="back">
+    <button type="reset" (click)="logout()">Log out</button>
+</div>

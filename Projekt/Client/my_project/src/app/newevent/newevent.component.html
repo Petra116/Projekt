@@ -1,0 +1,37 @@
+<div class="event-container">
+    <form class="event-form" [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+        <input formControlName="name" type="text" placeholder="Event name" required [ngClass]="{'invalid-input': eventForm.get('name')?.errors}"/>
+        <div *ngIf="eventForm.get('name')?.invalid && (eventForm.get('name')?.dirty || eventForm.get('name')?.touched)">
+            <p *ngIf="eventForm.get('name')?.errors && eventForm.get('name')?.errors!['required']">Event name is required.</p>
+        </div>
+        <input formControlName="place" type="text" placeholder="Place" required [ngClass]="{'invalid-input': eventForm.get('place')?.errors}"/>
+        <div *ngIf="eventForm.get('place')?.invalid && (eventForm.get('place')?.dirty || eventForm.get('place')?.touched)">
+            <p *ngIf="eventForm.get('place')?.errors && eventForm.get('place')?.errors!['required']">Place is required.</p>
+        </div>
+        <input formControlName="date" type="date" placeholder="Date" required [ngClass]="{'invalid-input': eventForm.get('date')?.errors}"/>
+        <div *ngIf="eventForm.get('date')?.invalid && (eventForm.get('date')?.dirty || eventForm.get('date')?.touched)">
+            <p *ngIf="eventForm.get('date')?.errors && eventForm.get('date')?.errors!['required']">Date is required.</p>
+        </div>
+        <input formControlName="time" type="string" placeholder="Time" required [ngClass]="{'invalid-input': eventForm.get('time')?.errors}"/>
+        <div *ngIf="eventForm.get('time')?.invalid && (eventForm.get('time')?.dirty || eventForm.get('time')?.touched)">
+            <p *ngIf="eventForm.get('time')?.errors && eventForm.get('time')?.errors!['required']">Time is required.</p>
+        </div>
+        <input formControlName="organizer" type="string" placeholder="Organizer" required [ngClass]="{'invalid-input': eventForm.get('organizer')?.errors}"/>
+        <div *ngIf="eventForm.get('organizer')?.invalid && (eventForm.get('organizer')?.dirty || eventForm.get('organizer')?.touched)">
+            <p *ngIf="eventForm.get('organizer')?.errors && eventForm.get('organizer')?.errors!['required']">Organizer is required.</p>
+        </div>
+        <input formControlName="price" type="number" placeholder="Price (ft)" required [ngClass]="{'invalid-input': eventForm.get('price')?.errors}"/>
+        <div *ngIf="eventForm.get('price')?.invalid && (eventForm.get('price')?.dirty || eventForm.get('price')?.touched)">
+            <p *ngIf="eventForm.get('price')?.errors && eventForm.get('price')?.errors!['required']">Price is required.</p>
+        </div>
+        <input formControlName="capacity" type="number" placeholder="Capacity (person)"/>
+
+        <div class="buttons">
+            <button type="submit">Save</button>
+        </div>
+        <div class="buttons">
+            <button type="reset" (click)="goBack()">Back</button>
+        </div>
+    </form>
+</div>
+

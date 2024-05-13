@@ -1,0 +1,43 @@
+<div class="signup-text">
+    <p>Producer signup</p>
+</div>
+
+<div class="signup-container">
+    <form class="signup-form" [formGroup]="signupProducerForm" (ngSubmit)="onSubmit()">
+        <input formControlName="email" type="email" placeholder="Email" required [ngClass]="{'invalid-input': signupProducerForm.get('email')?.errors}"/>
+        <div *ngIf="signupProducerForm.get('email')?.invalid && (signupProducerForm.get('email')?.dirty || signupProducerForm.get('email')?.touched)">
+            <p *ngIf="signupProducerForm.get('email')?.errors && signupProducerForm.get('email')?.errors!['required']">Email is required.</p>
+            <p *ngIf="signupProducerForm.get('email')?.errors && signupProducerForm.get('email')?.errors!['email']">Please enter a valid email.</p> 
+        </div>
+        <input formControlName="name" type="text" placeholder="Name"required [ngClass]="{'invalid-input': signupProducerForm.get('phone')?.errors}"/>
+        <div *ngIf="signupProducerForm.get('name')?.invalid && (signupProducerForm.get('name')?.dirty || signupProducerForm.get('name')?.touched)">
+            <p *ngIf="signupProducerForm.get('name')?.errors && signupProducerForm.get('name')?.errors!['required']">Name is required.</p>
+        </div>
+        <input formControlName="address" type="text" placeholder="Address" required [ngClass]="{'invalid-input': signupProducerForm.get('phone')?.errors}"/>
+        <div *ngIf="signupProducerForm.get('address')?.invalid && (signupProducerForm.get('address')?.dirty || signupProducerForm.get('address')?.touched)">
+            <p *ngIf="signupProducerForm.get('address')?.errors && signupProducerForm.get('address')?.errors!['required']">Address is required.</p>
+        </div>
+        <input formControlName="phone" type="tel" placeholder="Phone number" required [ngClass]="{'invalid-input': signupProducerForm.get('phone')?.errors}"/>
+        <div *ngIf="signupProducerForm.get('phone')?.invalid && (signupProducerForm.get('phone')?.dirty || signupProducerForm.get('phone')?.touched)">
+            <p *ngIf="signupProducerForm.get('phone')?.errors && signupProducerForm.get('phone')?.errors!['required']">Phone number is required.</p>
+            <p *ngIf="signupProducerForm.get('phone')?.errors && signupProducerForm.get('phone')?.errors!['minlength']">Phone number must be at least 7 numbers.</p> 
+            <p *ngIf="signupProducerForm.get('phone')?.errors && signupProducerForm.get('phone')?.errors!['maxlength']">Phone number must be at most 15 numbers.</p>
+        </div>
+        <input formControlName="password" type="password" placeholder="Password" required [ngClass]="{'invalid-input': signupProducerForm.get('password')?.errors}"/>
+        <div *ngIf="signupProducerForm.get('password')?.invalid && (signupProducerForm.get('password')?.dirty || signupProducerForm.get('password')?.touched)">
+            <p *ngIf="signupProducerForm.get('password')?.errors && signupProducerForm.get('password')?.errors!['required']">Password is required.</p>
+            <p *ngIf="signupProducerForm.get('password')?.errors && signupProducerForm.get('password')?.errors!['minlength']">Password must be at least 6 characters.</p> 
+        </div>
+        <input formControlName="confirmPassword" type="password" placeholder="Confirm password" required [ngClass]="{'invalid-input': signupProducerForm.get('confirmPassword')?.errors}"/>
+        <div *ngIf="signupProducerForm.get('confirmPassword')?.invalid && (signupProducerForm.get('confirmPassword')?.dirty || signupProducerForm.get('confirmPassword')?.touched)">
+            <p *ngIf="signupProducerForm.get('confirmPassword')?.errors && signupProducerForm.get('confirmPassword')?.errors!['required']">Confirming password is required.</p>
+            <p *ngIf="signupProducerForm.get('confirmPassword')?.errors && signupProducerForm.get('confirmPassword')?.errors!['mustMatch']">Passwords must match.</p> 
+        </div>
+        <div class="buttons">
+            <button type="submit">Sign up</button>
+        </div>
+        <div class="buttons">
+            <button type="reset" (click)="goBack()">Back</button>
+        </div>
+    </form>
+</div>

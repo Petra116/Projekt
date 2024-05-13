@@ -1,0 +1,30 @@
+<div class="product-container">
+    <form class="product-form" [formGroup]="productForm" (ngSubmit)="onSubmit()">
+        <input formControlName="name" type="text" placeholder="Product name" required [ngClass]="{'invalid-input': productForm.get('name')?.errors}"/>
+        <div *ngIf="productForm.get('name')?.invalid && (productForm.get('name')?.dirty || productForm.get('name')?.touched)">
+            <p *ngIf="productForm.get('name')?.errors && productForm.get('name')?.errors!['required']">Product name is required.</p>
+        </div>
+        <input formControlName="producer" type="text" placeholder="Producer" required [ngClass]="{'invalid-input': productForm.get('producer')?.errors}"/>
+        <div *ngIf="productForm.get('producer')?.invalid && (productForm.get('producer')?.dirty || productForm.get('producer')?.touched)">
+            <p *ngIf="productForm.get('producer')?.errors && productForm.get('producer')?.errors!['required']">Producer is required.</p>
+        </div>
+        <input formControlName="price" type="number" placeholder="Price (ft/kg)" required [ngClass]="{'invalid-input': productForm.get('price')?.errors}"/>
+        <div *ngIf="productForm.get('price')?.invalid && (productForm.get('price')?.dirty || productForm.get('price')?.touched)">
+            <p *ngIf="productForm.get('price')?.errors && productForm.get('price')?.errors!['required']">Price is required.</p>
+        </div>
+        <input formControlName="quantity" type="number" placeholder="Quantity (kg)"/>
+        <input formControlName="origin" type="text" placeholder="Origin"/>
+        <input formControlName="preorder" type="text" placeholder="Pre-order"/>
+        <input formControlName="delivery" type="text" placeholder="Delivery"/>
+        <input formControlName="availability" type="text" placeholder="Availability"/>
+        <input formControlName="discount" type="number" placeholder="Reduced price (ft/kg)"/>
+
+        <div class="buttons">
+            <button type="submit">Save</button>
+        </div>
+        <div class="buttons">
+            <button type="reset" (click)="goBack()">Back</button>
+        </div>
+    </form>
+</div>
+

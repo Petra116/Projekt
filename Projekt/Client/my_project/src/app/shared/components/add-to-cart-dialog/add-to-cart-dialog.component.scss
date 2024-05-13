@@ -1,0 +1,22 @@
+h2 {
+    text-align: center;
+}
+
+mat-dialog-actions {
+    display: flex;
+    justify-content: center;
+}
+
+.amount-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.amount-form input{
+    padding: 10px;
+    border: 1px solid #056120;
+    border-radius: 5px;
+    outline: none;
+    width:100px;
+}

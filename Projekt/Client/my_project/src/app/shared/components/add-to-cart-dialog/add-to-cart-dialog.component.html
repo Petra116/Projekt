@@ -1,0 +1,11 @@
+<h2>Add product</h2>
+<mat-dialog-content>
+    <p>Choose the amount:</p>
+</mat-dialog-content>
+<form class="amount-form">
+    <input type="number" placeholder="Amount" min="0.5" max="10" step="0.1" value="0.5"/>
+</form>
+<mat-dialog-actions>
+    <button mat-button [mat-dialog-close]="true">Add</button>
+    <button mat-button (click)="onBackClick()" cdkFocusInitial>Back</button>
+</mat-dialog-actions>
